@@ -1,16 +1,15 @@
 
-/*
-* Declaring variables 
-*/
+/* Declaring variables */
 
-let cardDeck = document.getElementsByTagName("ul")[1];
-let moveCount = document.getElementsByClassName('moves')[0];
-let totalMoves = moveCount.innerText;
 
-/*
- * Create a list that holds all of your cards
- */
-let cardList = [
+var cardDeck = document.getElementsByTagName("ul")[1];
+var moveCount = document.getElementsByClassName('moves')[0];
+var totalMoves = moveCount.innerText;
+var reset = document.getElementsByClassName('restart')[0];
+
+/* List that holds all the cards  */
+
+const cardList = [
 	             
 	'fa fa-diamond',
     'fa fa-paper-plane-o',
@@ -30,6 +29,7 @@ let cardList = [
  *   - add each card's HTML to the page
  */
 
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -45,12 +45,6 @@ function shuffle(array) {
     return array;
 	}
 
-//my functions >>>>> 
-
-function gameReset() {
-	shuffle(cardDeck);
-	hideCards(cardDeck);
-	}
 //Opening card with a click
 
 cardDeck.addEventListener('click',openCard);
@@ -61,19 +55,8 @@ function openCard(evt) {
     evt.target.classList.add('show');
 	}
 
-//check if cards match 
  
 
-
-
-//hiding all the cards 
-function hideCards(cardDeck) {
-	{
-    for (var i = 0; i<cardList.length; i++){
-        cardList[i].style.backgroundColor="#2e3d49";
-        cardList[i].style.color="#2e3d49";}
-		}
-	}
 /*
  * DONE set up the event listener for a card. If a card is clicked: 
  * DONE- display the card's symbol (put this functionality in another function that you call from this one)
