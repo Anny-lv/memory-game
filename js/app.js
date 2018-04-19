@@ -2,25 +2,13 @@
 /* Declaring variables */
 
 
-var cardDeck = document.getElementsByTagName("ul")[1];
-var moveCount = document.getElementsByClassName('moves')[0];
-var totalMoves = moveCount.innerText;
-var reset = document.getElementsByClassName('restart')[0];
+const cardDeck = document.getElementsByTagName("ul")[1];
+let card = document.getElementsByClassName("card");
+let cards = [...card];
 
-/* List that holds all the cards  */
 
-const cardList = [
-	             
-	'fa fa-diamond',
-    'fa fa-paper-plane-o',
-    'fa fa-anchor',
-    'fa fa-bolt',
-    'fa fa-cube',
-    'fa fa-leaf',
-    'fa fa-bicycle',
-    'fa fa-bomb'
-
-];
+// List that holds opened cards
+let openedCards = [];
 
 /*
  * Display the cards on the page
@@ -28,8 +16,7 @@ const cardList = [
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-
-
+  
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -45,22 +32,23 @@ function shuffle(array) {
     return array;
 	}
 
-//Opening card with a click
+
+//Opening card with a click by adding classes to element
 
 cardDeck.addEventListener('click',openCard);
 
-function openCard(evt) {
-   	const className = evt.target.classList;
-    evt.target.classList.add('open');
-    evt.target.classList.add('show');
+function openCard() {
+    openedCards.push(this);
+    this.classList.add("open", "show", "disable");
 	}
 
  
 
+
 /*
- * DONE set up the event listener for a card. If a card is clicked: 
- * DONE- display the card's symbol (put this functionality in another function that you call from this one)
- * DONE add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+ *  set up the event listener for a card. If a card is clicked: 
+ * - display the card's symbol (put this functionality in another function that you call from this one)
+ *  add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
