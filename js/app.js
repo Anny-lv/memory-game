@@ -1,7 +1,16 @@
+
+/*
+* Declaring variables 
+*/
+
+let cardDeck = document.getElementsByTagName("ul")[1];
+let moveCount = document.getElementsByClassName('moves')[0];
+let totalMoves = moveCount.innerText;
+
 /*
  * Create a list that holds all of your cards
  */
-const cardList = [
+let cardList = [
 	             
 	'fa fa-diamond',
     'fa fa-paper-plane-o',
@@ -34,13 +43,41 @@ function shuffle(array) {
     }
 
     return array;
-}
+	}
+
+//my functions >>>>> 
+
+function gameReset() {
+	shuffle(cardDeck);
+	hideCards(cardDeck);
+	}
+//Opening card with a click
+
+cardDeck.addEventListener('click',openCard);
+
+function openCard(evt) {
+   	const className = evt.target.classList;
+    evt.target.classList.add('open');
+    evt.target.classList.add('show');
+	}
+
+//check if cards match 
+ 
 
 
+
+//hiding all the cards 
+function hideCards(cardDeck) {
+	{
+    for (var i = 0; i<cardList.length; i++){
+        cardList[i].style.backgroundColor="#2e3d49";
+        cardList[i].style.color="#2e3d49";}
+		}
+	}
 /*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+ * DONE set up the event listener for a card. If a card is clicked: 
+ * DONE- display the card's symbol (put this functionality in another function that you call from this one)
+ * DONE add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
