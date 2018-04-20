@@ -1,10 +1,17 @@
 
+//Declaring variables
+
 const cardDeck = document.querySelector('.deck');
 /*
  * Create a list that holds all of your cards
  */
 let card = document.getElementsByClassName("card");
 let cards = [...card];
+
+
+//Declare empty array for matching cards
+
+let matchedCards = [];
 
 /*
  * Display the cards on the page
@@ -28,11 +35,14 @@ function shuffle(array) {
     return array;
 }
 
+
+//on reload start a new game
 document.body.onload = newGame();
 
 
-
 function newGame(){
+
+//shuffle cards and assign new clases to html
 	cards = shuffle(cards)
 	for (let i = 0; i < cards.length; i++){
 		cardDeck.innerHTML = '';
@@ -44,7 +54,7 @@ function newGame(){
 };
 
 
-var displayCard = function (){
+let displayCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
     
