@@ -1,14 +1,7 @@
+/*
+ * Create a list that holds all of your cards
+ */
 
-/* Declaring variables */
-
-
-const cardDeck = document.getElementsByTagName("ul")[1];
-let card = document.getElementsByClassName("card");
-let cards = [...card];
-
-
-// List that holds opened cards
-let openedCards = [];
 
 /*
  * Display the cards on the page
@@ -16,7 +9,7 @@ let openedCards = [];
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-  
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -30,25 +23,13 @@ function shuffle(array) {
     }
 
     return array;
-	}
-
-
-//Opening card with a click by adding classes to element
-
-cardDeck.addEventListener('click',openCard);
-
-function openCard() {
-    openedCards.push(this);
-    this.classList.add("open", "show", "disable");
-	}
-
- 
+}
 
 
 /*
- *  set up the event listener for a card. If a card is clicked: 
- * - display the card's symbol (put this functionality in another function that you call from this one)
- *  add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+ * set up the event listener for a card. If a card is clicked:
+ *  - display the card's symbol (put this functionality in another function that you call from this one)
+ *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
