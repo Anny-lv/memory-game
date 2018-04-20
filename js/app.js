@@ -1,7 +1,10 @@
+
+const cardDeck = document.querySelector('.deck');
 /*
  * Create a list that holds all of your cards
  */
-
+let card = document.getElementsByClassName("card");
+let cards = [...card];
 
 /*
  * Display the cards on the page
@@ -24,6 +27,33 @@ function shuffle(array) {
 
     return array;
 }
+
+document.body.onload = newGame();
+
+
+
+function newGame(){
+	cards = shuffle(cards)
+	for (let i = 0; i < cards.length; i++){
+		cardDeck.innerHTML = '';
+		[].forEach.call(cards, function(item){
+			cardDeck.appendChild(item);
+		});
+		cards[i].classList.remove("show", "open", "match");
+	}
+};
+
+
+var displayCard = function (){
+    this.classList.toggle("open");
+    this.classList.toggle("show");
+    
+};
+
+for (let i = 0; i < cards.length; i++){
+    card = cards[i];
+    card.addEventListener('click', displayCard);
+    };
 
 
 /*
