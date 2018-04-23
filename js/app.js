@@ -60,12 +60,36 @@ let displayCard = function (){
     
 };
 
+
+function openList(){
+	matchedCards.push(this);
+	if (matchedCards.length === 2){
+		if (matchedCards[0].firstElementChild.className === matchedCards[1].firstElementChild.className){
+			matchCard();
+			matchedCards = [];
+		} else {
+			unmatchCard();
+			matchedCards = [];
+		}
+	}
+}
+
+function matchCard () {
+
+card.classList.add("match");
+};
+
+function unmatchCard () {
+	setTimeout(function(){
+		card.classList.remove("open", "show", "disable");
+	}, 1000);
+};
+
 for (let i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener('click', displayCard);
+    card.addEventListener('click', openList);
     };
-
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
