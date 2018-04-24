@@ -4,7 +4,8 @@
 const cardDeck = document.querySelector('.deck');
 let card = document.getElementsByClassName("card");
 let cards = [...card];
-
+const moves = document.querySelector(".moves")
+let countMoves = 0;
 
 //Declare empty array for matching cards
 let matchedCards = [];
@@ -43,10 +44,11 @@ function newGame(){
 	for (let i = 0; i < cards.length; i++){
 		cardDeck.innerHTML = '';
 		[].forEach.call(cards, function(item){
-			cardDeck.appendChild(item);
+		cardDeck.appendChild(item);
 		});
 		cards[i].classList.remove("show", "open", "match");
 	}
+	
 };
 
 
@@ -54,7 +56,7 @@ function newGame(){
 let displayCard = function (){
     this.classList.add("open");
     this.classList.add("show");
-
+    
 };
 
 
@@ -65,8 +67,10 @@ function openList(){
         if (matchedCards[0].firstElementChild.className === matchedCards[1].firstElementChild.className){
             matchCard();
             matchedCards = [];
+            moveCounter();
         } else {    
             unmatchCard();
+            moveCounter();
         }
     }
 }
@@ -88,6 +92,10 @@ function unmatchCard () {
     // console.log('hiii');
 };
 
+function moveCounter (){
+	countMoves++;
+	moves.innerHTML =  countMoves;
+}
 for (let i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener('click', displayCard);
