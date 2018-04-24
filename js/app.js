@@ -49,7 +49,8 @@ function newGame(){
 		});
 		cards[i].classList.remove("show", "open","disable");
 	}
-	
+	countMoves = 0;
+	moveCounter();
 };
 
 
@@ -96,8 +97,8 @@ function unmatchCard () {
 };
 
 function moveCounter (){
-	countMoves++;
 	moves.innerHTML =  countMoves;
+	countMoves++;
 }
 for (let i = 0; i < cards.length; i++){
     card = cards[i];
