@@ -4,7 +4,8 @@
 const cardDeck = document.querySelector('.deck');
 let card = document.getElementsByClassName("card");
 let cards = [...card];
-const moves = document.querySelector(".moves")
+let moves = document.querySelector(".moves")
+let restart = document.querySelector(".restart")
 let countMoves = 0;
 
 //Declare empty array for matching cards
@@ -46,10 +47,11 @@ function newGame(){
 		[].forEach.call(cards, function(item){
 		cardDeck.appendChild(item);
 		});
-		cards[i].classList.remove("show", "open", "match");
+		cards[i].classList.remove("show", "open","disable");
 	}
 	
 };
+
 
 
 //add classes to display card
@@ -59,6 +61,7 @@ let displayCard = function (){
     
 };
 
+restart.onclick = newGame;
 
 //check if cards match
 function openList(){
