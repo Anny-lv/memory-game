@@ -2,15 +2,11 @@
 //Declaring variables
 
 const cardDeck = document.querySelector('.deck');
-/*
- * Create a list that holds all of your cards
- */
 let card = document.getElementsByClassName("card");
 let cards = [...card];
 
 
 //Declare empty array for matching cards
-
 let matchedCards = [];
 
 /*
@@ -54,35 +50,42 @@ function newGame(){
 };
 
 
+//add classes to display card
 let displayCard = function (){
-    this.classList.toggle("open");
-    this.classList.toggle("show");
-    
+    this.classList.add("open");
+    this.classList.add("show");
+
 };
 
 
+//check if cards match
 function openList(){
-	matchedCards.push(this);
-	if (matchedCards.length === 2){
-		if (matchedCards[0].firstElementChild.className === matchedCards[1].firstElementChild.className){
-			matchCard();
-			matchedCards = [];
-		} else {
-			unmatchCard();
-			matchedCards = [];
-		}
-	}
+    matchedCards.push(this);
+    if (matchedCards.length === 2){
+        if (matchedCards[0].firstElementChild.className === matchedCards[1].firstElementChild.className){
+            matchCard();
+            matchedCards = [];
+        } else {    
+            unmatchCard();
+        }
+    }
 }
 
-function matchCard () {
 
-card.classList.add("match");
+// Add classess to matched cards
+function matchCard () {
+	 matchedCards[0].classList.add("open", "show", "disable");
+     matchedCards[1].classList.add("open", "show", "disable");
 };
 
+//nemove classes from unmatched cards
 function unmatchCard () {
-	setTimeout(function(){
-		card.classList.remove("open", "show", "disable");
-	}, 1000);
+    setTimeout(function(){
+        matchedCards[0].classList.remove("open", "show", "disable");
+         matchedCards[1].classList.remove("open", "show", "disable");
+         matchedCards = [];
+     }, 1000);
+    // console.log('hiii');
 };
 
 for (let i = 0; i < cards.length; i++){
