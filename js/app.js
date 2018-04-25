@@ -41,6 +41,21 @@ document.body.onload = newGame();
 
 function newGame(){
 
+//Clear matched card collection
+	matchedCards = [];
+
+//Clear moves
+	countMoves = 0;
+
+	moveCounter();
+
+//Reset stars
+//	    for (let i= 0; i < stars.length; i++){
+ //       const star = stars[i].childNodes[0];
+ //       star.className.add('fa fa-star');
+// }
+
+
 //shuffle cards and assign new clases to html
 	cards = shuffle(cards)
 	for (let i = 0; i < cards.length; i++){
@@ -50,8 +65,8 @@ function newGame(){
 		});
 		cards[i].classList.remove("show", "open","disable");
 	}
-	countMoves = 0;
-	moveCounter();
+
+
 };
 
 
@@ -90,7 +105,7 @@ function matchCard () {
 //Remove classes from unmatched cards
 function unmatchCard () {
     setTimeout(function(){
-        matchedCards[0].classList.remove("open", "show", "disable");
+         matchedCards[0].classList.remove("open", "show", "disable");
          matchedCards[1].classList.remove("open", "show", "disable");
          matchedCards = [];
      }, 1000);
