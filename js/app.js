@@ -7,6 +7,7 @@ let cards = [...card];
 let moves = document.querySelector(".moves")
 let restart = document.querySelector(".restart")
 let countMoves = 0;
+const stars = document.querySelector(".stars")
 
 //Declare empty array for matching cards
 let matchedCards = [];
@@ -55,7 +56,7 @@ function newGame(){
 
 
 
-//add classes to display card
+//Add classes to display card
 let displayCard = function (){
     this.classList.add("open");
     this.classList.add("show");
@@ -64,7 +65,7 @@ let displayCard = function (){
 
 restart.onclick = newGame;
 
-//check if cards match
+//Check if cards match
 function openList(){
     matchedCards.push(this);
     if (matchedCards.length === 2){
@@ -86,20 +87,38 @@ function matchCard () {
      matchedCards[1].classList.add("open", "show", "disable");
 };
 
-//nemove classes from unmatched cards
+//Remove classes from unmatched cards
 function unmatchCard () {
     setTimeout(function(){
         matchedCards[0].classList.remove("open", "show", "disable");
          matchedCards[1].classList.remove("open", "show", "disable");
          matchedCards = [];
      }, 1000);
-    // console.log('hiii');
-};
+  };
 
+
+//Adding moves to counter
 function moveCounter (){
 	moves.innerHTML =  countMoves;
 	countMoves++;
+
+	//Setting star raiting
+
+	if(countMoves >=  12 && countMoves < 17)	{
+		stars.children[2].innerHTML = "";
+	}
+	else if (countMoves >=  17 && countMoves < 24)	{
+		stars.children[1].innerHTML = "";
+	}
+	else if (countMoves >=  24)	{
+		stars.children[0].innerHTML = "";
+	}
 }
+
+
+
+
+
 for (let i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener('click', displayCard);
