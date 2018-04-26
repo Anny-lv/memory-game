@@ -9,6 +9,8 @@ let restart = document.querySelector(".restart")
 let countMoves = 0;
 const stars = document.querySelector(".stars")
 
+
+
 //Declare empty array for matching cards
 let matchedCards = [];
 
@@ -46,7 +48,7 @@ function newGame(){
 
 //Clear moves
 	countMoves = 0;
-
+	timeStamp();
 	moveCounter();
 
 //Reset stars
@@ -132,6 +134,30 @@ function moveCounter (){
 
 
 
+//Count up timer, source: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+
+function timeStamp() {
+// Create a date object with the current time
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+ 	 	}
+	}
+ }
 
 
 for (let i = 0; i < cards.length; i++){
