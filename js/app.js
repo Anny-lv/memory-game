@@ -1,4 +1,3 @@
-
 //Declaring variables
 
 const cardDeck = document.querySelector('.deck');
@@ -28,7 +27,7 @@ function shuffle(array) {
         array[randomIndex] = temporaryValue;
     }
     return array;
-};
+}
 
 //on reload start a new game
 document.body.onload = newGame();
@@ -37,22 +36,22 @@ document.body.onload = newGame();
 function newGame(){
 
 //Clear matched card collection
-	matchedCards = [];
+    matchedCards = [];
 
 //Clear moves
-	countMoves = 0;
-	moveCounter();
+    countMoves = 0;
+    moveCounter();
 
 //shuffle cards and assign new clases to html
-	cards = shuffle(cards)
-	for (let i = 0; i < cards.length; i++){
-		cardDeck.innerHTML = '';
-		[].forEach.call(cards, function(item){
-		cardDeck.appendChild(item);
-		});
-		cards[i].classList.remove("show", "open","disable");
-	}
-};
+    cards = shuffle(cards)
+    for (let i = 0; i < cards.length; i++){
+        cardDeck.innerHTML = '';
+        [].forEach.call(cards, function(item){
+        cardDeck.appendChild(item);
+        });
+        cards[i].classList.remove("show", "open","disable");
+    }
+}
 
 
 //Add classes to display card
@@ -69,7 +68,7 @@ restart.onclick = reloadFun;
 function reloadFun() {
     location.reload();
     timeOn =0;
-};
+}
 
 //Check if cards match
 function openList(){
@@ -81,20 +80,20 @@ function openList(){
             matchedCards = [];
             moveCounter();
             if (allMatched.length==16) {
-            	gameOver ();}
+            gameOver ();}
         } else {    
             unmatchCard();
             moveCounter();
-        };
-    };
-};
+        }
+    }
+}
 
 
 // Add classess to matched cards
 function matchCard () {
-	 matchedCards[0].classList.add("open", "show", "disable");
-     matchedCards[1].classList.add("open", "show", "disable");
-};
+    matchedCards[0].classList.add("open", "show", "disable");
+    matchedCards[1].classList.add("open", "show", "disable");
+}
 
 //Remove classes from unmatched cards
 function unmatchCard () {
@@ -104,29 +103,29 @@ function unmatchCard () {
          matchedCards = [];
      }, 1000);
 
-  };
+  }
 
 
 //Adding moves to counter
 function moveCounter (){
-	moves.innerHTML =  countMoves;
-	countMoves++;
+    moves.innerHTML =  countMoves;
+    countMoves++;
 
-	//Setting star raiting
+    //Setting star raiting
 
-	if(countMoves >=  12 && countMoves < 17)	{
-		stars.children[2].innerHTML = "";
+    if(countMoves >=  12 && countMoves < 17)    {
+        stars.children[2].innerHTML = "";
         endStars.innerHTML = 'End Stars: ' + 2;
-	}
-	else if (countMoves >=  17 && countMoves < 24)	{
-		stars.children[1].innerHTML = "";
+    }
+    else if (countMoves >=  17 && countMoves < 24)  {
+        stars.children[1].innerHTML = "";
         endStars.innerHTML = 'End Stars: ' + 1;
-	}
-	else if (countMoves >=  24)	{
-		stars.children[0].innerHTML = "";
+    }
+    else if (countMoves >=  24) {
+        stars.children[0].innerHTML = "";
         endStars.innerHTML = 'End Stars: ' + 0;
-	};
-};
+    }
+}
 
 
 //Start the timer when new game is started
@@ -136,7 +135,7 @@ let secondsElapsed = 0;
 let x = setInterval(function() {
   if (newGame && timeOn == 1) {
     secondsElapsed++;
- };
+ }
 
 //Math functions to get the time 
 document.getElementsByClassName("timer")[0].innerHTML =
@@ -154,8 +153,7 @@ document.getElementsByClassName("timer")[0].innerHTML =
 function gameOver() {
     modal.style.display = "block";
     timeOn =0;
-    getTime();
-   
+    getTime(); 
 };
 
 //Getting time when game ware finished
@@ -164,7 +162,6 @@ function getTime () {
     document.querySelector(".endTime").innerHTML = 'End Time: ' + currentTime;
 
  }; 
-
 
 
 //*Congratulations modal
@@ -184,5 +181,3 @@ for (let i = 0; i < cards.length; i++){
     card.addEventListener('click', displayCard);
     card.addEventListener('click', openList);
     };
-
-
