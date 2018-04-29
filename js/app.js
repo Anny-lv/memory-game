@@ -159,11 +159,6 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-   document.getElementsByClassName("timer")[0].innerHTML = secondsElapsed;
-}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
