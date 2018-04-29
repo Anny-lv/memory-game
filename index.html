@@ -15,22 +15,22 @@
             <h1>Memory Game</h1>
         </header>
 
-        <section class="score-panel">
+    <section class="score-panel">
             <ul class="stars">
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
             </ul>
 
-            <span class="moves">0</span> Moves
-            <div class="restart">
-                <i class="fa fa-repeat"></i>
-            </div>
+        <span class="moves">0</span> Moves
+        <div class="restart">
+            <i class="fa fa-repeat"></i>
+        </div>
             
-            <span class ="timer">
+        <span class ="timer">
           <i class="fa fa-clock-o"> </i> 00:00
         </span>
-        </section>
+    </section>
 
 
 <div id="myModal" class="modal">
@@ -38,7 +38,10 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p>Congratulations! You Won!</p>
+    <p> Your time: </p>
+    <p> Your stars: </p>
+        <button id='play-again' onclick="reloadFun()"> Play again</button>
   </div>
 
 </div>

@@ -33,6 +33,11 @@ h1 {
     font-weight: 300;
 }
 
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
 /*
  * Styles for the deck of cards
  */
@@ -151,4 +156,20 @@ h1 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/*button to play again*/
+#play-again {
+    box-sizing: content-box;
+    background-color: #1abc;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: 0;
+    cursor: pointer;
+        display: block;
+    margin: 0 auto;
 }
