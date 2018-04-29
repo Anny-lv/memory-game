@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
     <meta name="description" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -33,14 +34,14 @@
     </section>
 
 
-<div id="myModal" class="modal">
+<div id="congrats" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
     <p>Congratulations! You Won!</p>
-    <p> Your time: </p>
-    <p> Your stars: </p>
+    <p class="endTime"> Your time: </p>
+    <p class="endStars"> Your stars:  </p>
         <button id='play-again' onclick="reloadFun()"> Play again</button>
   </div>
 

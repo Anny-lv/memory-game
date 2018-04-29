@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+
 }
 
 *,
@@ -90,7 +91,6 @@ p {
     opacity: 0.9;
 }
 
-
 /*
  * Styles for the Score Panel
  */
@@ -117,6 +117,7 @@ p {
     float: right;
     cursor: pointer;
 }
+
 
 
 /*Modal styles from w3school.com */

@@ -8,7 +8,8 @@ let moves = document.querySelector(".moves")
 let restart = document.querySelector(".restart")
 let countMoves = 0;
 const stars = document.querySelector(".stars")
-
+let timeOn =0;
+let endStars = document.querySelector(".endStars");
 
 //Declare empty array for matching cards
 let matchedCards = [];
@@ -32,7 +33,8 @@ function shuffle(array) {
 //on reload start a new game
 document.body.onload = newGame();
 
-	function newGame(){
+// When a new game starts do the following >>
+function newGame(){
 
 //Clear matched card collection
 	matchedCards = [];
@@ -40,7 +42,6 @@ document.body.onload = newGame();
 //Clear moves
 	countMoves = 0;
 	moveCounter();
-
 
 //shuffle cards and assign new clases to html
 	cards = shuffle(cards)
@@ -58,6 +59,7 @@ document.body.onload = newGame();
 let displayCard = function (){
     this.classList.add("open");
     this.classList.add("show");
+    timeOn =1;
 };
 
 
@@ -66,7 +68,8 @@ restart.onclick = reloadFun;
 
 function reloadFun() {
     location.reload();
-}
+    timeOn =0;
+};
 
 //Check if cards match
 function openList(){
@@ -78,15 +81,13 @@ function openList(){
             matchedCards = [];
             moveCounter();
             if (allMatched.length==16) {
-            	gameOver ();
-
-            }
+            	gameOver ();}
         } else {    
             unmatchCard();
             moveCounter();
-        }
-    }
-}
+        };
+    };
+};
 
 
 // Add classess to matched cards
@@ -102,6 +103,7 @@ function unmatchCard () {
          matchedCards[1].classList.remove("open", "show", "disable");
          matchedCards = [];
      }, 1000);
+
   };
 
 
@@ -114,24 +116,29 @@ function moveCounter (){
 
 	if(countMoves >=  12 && countMoves < 17)	{
 		stars.children[2].innerHTML = "";
-			}
+        endStars.innerHTML = 'End Stars: ' + 2;
+	}
 	else if (countMoves >=  17 && countMoves < 24)	{
 		stars.children[1].innerHTML = "";
+        endStars.innerHTML = 'End Stars: ' + 1;
 	}
 	else if (countMoves >=  24)	{
 		stars.children[0].innerHTML = "";
-	}
-}
+        endStars.innerHTML = 'End Stars: ' + 0;
+	};
+};
 
 
 //Start the timer when new game is started
 let secondsElapsed = 0;
 
+//Check if new game already started and if any clicks done
 let x = setInterval(function() {
-  if (newGame) {
+  if (newGame && timeOn == 1) {
     secondsElapsed++;
  };
 
+//Math functions to get the time 
 document.getElementsByClassName("timer")[0].innerHTML =
   `<i class='fa fa-clock-o'></i>
   ${(Math.floor(secondsElapsed / 60) < 10) ?
@@ -143,15 +150,27 @@ document.getElementsByClassName("timer")[0].innerHTML =
  
 );
 
+//When all the cards are open do the following >>
 function gameOver() {
     modal.style.display = "block";
-    secondsElapsed =0;
+    timeOn =0;
+    getTime();
+   
 };
 
-//Modal
+//Getting time when game ware finished
+function getTime () {
+  let currentTime = document.querySelector(".timer").innerHTML;
+    document.querySelector(".endTime").innerHTML = 'End Time: ' + currentTime;
 
+ }; 
+
+
+
+//*Congratulations modal
+//
 // Get the modal
-const modal = document.getElementById('myModal');
+const modal = document.getElementById('congrats');
 const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
@@ -159,9 +178,7 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
-
-
-////
+//Event listeners 
 for (let i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener('click', displayCard);
