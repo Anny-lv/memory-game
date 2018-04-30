@@ -1,12 +1,13 @@
+/*jshint esversion: 6 */
 //Declaring variables
 
 const cardDeck = document.querySelector('.deck');
 let card = document.getElementsByClassName("card");
 let cards = [...card];
-let moves = document.querySelector(".moves")
-let restart = document.querySelector(".restart")
+let moves = document.querySelector(".moves");
+let restart = document.querySelector(".restart");
 let countMoves = 0;
-const stars = document.querySelector(".stars")
+const stars = document.querySelector(".stars");
 let timeOn =0;
 let endStars = document.querySelector(".endStars");
 
@@ -43,13 +44,13 @@ function newGame(){
     moveCounter();
 
 //shuffle cards and assign new clases to html
-    cards = shuffle(cards)
+    cards = shuffle(cards);
     for (let i = 0; i < cards.length; i++){
         cardDeck.innerHTML = '';
         [].forEach.call(cards, function(item){
         cardDeck.appendChild(item);
         });
-        cards[i].classList.remove("show", "open","disable");
+        cards[i].classList.remove("show", "open", "match","disable");
     }
 }
 
@@ -84,6 +85,7 @@ function openList(){
         } else {    
             unmatchCard();
             moveCounter();
+
         }
     }
 }
@@ -93,6 +95,7 @@ function openList(){
 function matchCard () {
     matchedCards[0].classList.add("open", "show", "match", "disable");
     matchedCards[1].classList.add("open", "show", "match", "disable");
+
 }
 
 //Remove classes from unmatched cards
@@ -131,7 +134,7 @@ function moveCounter (){
 let secondsElapsed = 0;
 
 //Check if new game already started and if any clicks done
-let x = setInterval(function() {
+ setInterval(function() {
   if (newGame && timeOn == 1) {
     secondsElapsed++;
  }
@@ -153,14 +156,14 @@ function gameOver() {
     modal.style.display = "block";
     timeOn =0;
     getTime(); 
-};
+}
 
 //Getting time when game ware finished
 function getTime () {
   let currentTime = document.querySelector(".timer").innerHTML;
     document.querySelector(".endTime").innerHTML = 'End Time: ' + currentTime;
 
- }; 
+ } 
 
 
 //*Congratulations modal
@@ -172,11 +175,11 @@ const span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
-}
+};
 
 //Event listeners 
 for (let i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener('click', displayCard);
     card.addEventListener('click', openList);
-    };
+    }
