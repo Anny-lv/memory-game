@@ -113,15 +113,15 @@ function moveCounter (){
 
     //Setting star raiting
 
-    if(countMoves >=  12 && countMoves < 17)    {
+    if(countMoves >=  15 && countMoves < 21)    {
         stars.children[2].innerHTML = "";
         endStars.innerHTML = 'End Stars: ' + 2;
     }
-    else if (countMoves >=  17 && countMoves < 24)  {
+    else if (countMoves >=  21 && countMoves < 26)  {
         stars.children[1].innerHTML = "";
         endStars.innerHTML = 'End Stars: ' + 1;
     }
-    else if (countMoves >=  24) {
+    else if (countMoves >=  26) {
         stars.children[0].innerHTML = "";
         endStars.innerHTML = 'End Stars: ' + 0;
     }
