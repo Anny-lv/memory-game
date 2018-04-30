@@ -83,7 +83,7 @@ p {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #db3d3d;
     font-size: 33px;
 }
 .deck .card.disable {

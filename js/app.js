@@ -91,8 +91,8 @@ function openList(){
 
 // Add classess to matched cards
 function matchCard () {
-    matchedCards[0].classList.add("open", "show", "disable");
-    matchedCards[1].classList.add("open", "show", "disable");
+    matchedCards[0].classList.add("open", "show", "match", "disable");
+    matchedCards[1].classList.add("open", "show", "match", "disable");
 }
 
 //Remove classes from unmatched cards
