@@ -113,17 +113,16 @@ function moveCounter (){
 
     //Setting star raiting
 
-    if(countMoves >=  15 && countMoves < 21)    {
+    if(countMoves < 15 )    {
+        endStars.innerHTML = 'End Stars: ' + 3;
+    }
+    else if (countMoves >=  15 && countMoves < 21)  {
         stars.children[2].innerHTML = "";
         endStars.innerHTML = 'End Stars: ' + 2;
     }
-    else if (countMoves >=  21 && countMoves < 26)  {
+    else if (countMoves >=  21) {
         stars.children[1].innerHTML = "";
         endStars.innerHTML = 'End Stars: ' + 1;
-    }
-    else if (countMoves >=  26) {
-        stars.children[0].innerHTML = "";
-        endStars.innerHTML = 'End Stars: ' + 0;
     }
 }
 
