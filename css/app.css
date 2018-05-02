@@ -181,3 +181,82 @@ p {
         display: block;
     margin: 0 auto;
 }
+
+/* Phones */ 
+@media (max-width: 329px) {
+.deck {
+    width: 100%;
+    max-width: 350px;
+    min-height: 320px;
+    max-height: 320px;
+}
+
+.deck .card {
+    width: 80%;
+    min-height: 100%;
+    max-height: 55px;
+    max-width: 55px;
+    margin: 2px;
+}
+}
+@media (min-width: 320px) and (max-width:466px){
+.deck {
+    width: 100%;
+    max-width: 350px;
+    min-height: 320px;
+    max-height: 320px;
+}
+
+.deck .card {
+    width: 80%;
+    min-height: 100%;
+    max-height: 60px;
+    max-width: 60px;
+    margin: 2px;
+}
+}
+@media  (min-width: 465px) and (max-width:522px){
+.deck {
+    width: 100%;
+    min-height: 100%;
+}
+
+.deck .card {
+    width: 100%;
+    min-height: 100%;
+    max-height: 90px;
+    max-width: 90px;
+    margin: 3px;
+}
+}
+
+@media (min-width: 523px) and (max-width:623px){
+.deck {
+    width: 100%;
+    min-height: 100%;
+}
+
+.deck .card {
+    width: 100%;
+    min-height: 50%;
+    max-height: 100px;
+    max-width: 100px;
+    margin: 5px;
+}
+}
+
+
+/* Tablets */ 
+@media (min-width: 624px) and (max-width:699px) {
+.deck {
+    width: 100%;
+    min-height: 100%;
+}
+
+.deck .card {
+    max-height: 125px;
+    max-width: 125px;
+    margin: 5px;
+}
+}
+
