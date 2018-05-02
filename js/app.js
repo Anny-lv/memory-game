@@ -75,28 +75,31 @@ function reloadFun() {
 function openList(){
     matchedCards.push(this);
     if (matchedCards.length === 2){
+            cardDeck.classList.add("disabled");
         if (matchedCards[0].firstElementChild.className === matchedCards[1].firstElementChild.className){
             matchCard();
             allMatched.push(matchedCards[0].firstElementChild.className, matchedCards[1].firstElementChild.className);
             matchedCards = [];
             moveCounter();
-            if (allMatched.length==16) {
-            gameOver ();}
-        } else {    
+        if (allMatched.length==16) {
+            gameOver ();}} 
+    else {  
+            cardDeck.classList.add("disabled");
             unmatchCard();
             moveCounter();
-
+            
         }
     }
 }
+
 
 
 // Add classess to matched cards
 function matchCard () {
     matchedCards[0].classList.add("open", "show", "match", "disable");
     matchedCards[1].classList.add("open", "show", "match", "disable");
-
-}
+     cardDeck.classList.remove("disabled");
+    }
 
 //Remove classes from unmatched cards
 function unmatchCard () {
@@ -104,6 +107,7 @@ function unmatchCard () {
          matchedCards[0].classList.remove("open", "show", "disable");
          matchedCards[1].classList.remove("open", "show", "disable");
          matchedCards = [];
+         cardDeck.classList.remove("disabled");
      }, 1000);
 
   }
@@ -176,6 +180,8 @@ const span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 };
+
+
 
 //Event listeners 
 for (let i = 0; i < cards.length; i++){
