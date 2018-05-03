@@ -59,6 +59,7 @@ function newGame(){
 let displayCard = function (){
     this.classList.add("open");
     this.classList.add("show");
+    this.classList.add("disable");
     timeOn =1;
 };
 
